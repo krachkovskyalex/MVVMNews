@@ -1,4 +1,5 @@
 package com.androiddevs.mvvmnewsapp.all
 
-class NewsApplication {
-}
+import android.app.Application
+
+class NewsApplication : Application()
