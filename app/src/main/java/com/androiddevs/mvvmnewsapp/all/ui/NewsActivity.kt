@@ -2,6 +2,8 @@ package com.androiddevs.mvvmnewsapp.all.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -18,9 +20,19 @@ class NewsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news)
 
-        val newsRepository = NewsRepository(ArticleDataBase(this))
-        val viewModelProviderFactory = NewsViewModelProviderFactory(application, newsRepository)
+        val viewModelProviderFactory = NewsViewModelProviderFactory(application)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(NewsViewModel::class.java)
+
         bottomNavigationView.setupWithNavController(newsNavHostFragment.findNavController())
+
+        //Model-View-ViewModel
+
+        //Model -> данные
+
+        //View -> отображение
+
+        //ViewModel -> специальный класс, который призван связать View и Model
+
+        //MVP MVC MVVM
     }
 }

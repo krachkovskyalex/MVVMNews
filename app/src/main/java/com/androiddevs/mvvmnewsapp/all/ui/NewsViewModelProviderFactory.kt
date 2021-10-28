@@ -6,11 +6,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.androiddevs.mvvmnewsapp.all.repository.NewsRepository
 
 class NewsViewModelProviderFactory(
-    val app: Application,
-    val newsRepository: NewsRepository
+    val app: Application
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return NewsViewModel(app, newsRepository) as T
+        return NewsViewModel(app) as T
     }
 }
