@@ -10,6 +10,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.androiddevs.mvvmnewsapp.all.NewsApplication
+import com.androiddevs.mvvmnewsapp.all.db.ArticleDataBase
 import com.androiddevs.mvvmnewsapp.all.models.Article
 import com.androiddevs.mvvmnewsapp.all.models.NewsResponse
 import com.androiddevs.mvvmnewsapp.all.repository.NewsRepository
@@ -19,8 +20,7 @@ import retrofit2.Response
 import java.io.IOException
 
 class NewsViewModel(
-    app: Application,
-    private val newsRepository: NewsRepository
+    app: Application
 ) : AndroidViewModel(app) {
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
@@ -30,6 +30,7 @@ class NewsViewModel(
     val searchNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var searchNewsPage = 1
     var searchNewsResponse: NewsResponse? = null
+    private val newsRepository = NewsRepository(ArticleDataBase(app))
 
     init {
         getBreakingNews("us")
