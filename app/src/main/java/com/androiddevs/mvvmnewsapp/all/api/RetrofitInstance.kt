@@ -1,7 +1,6 @@
 package com.androiddevs.mvvmnewsapp.all.api
 
-import android.os.Build
-import com.androiddevs.mvvmnewsapp.all.util.Constants.Companion.BASE_URL
+import com.androiddevs.mvvmnewsapp.all.util.Constants.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -1,8 +1,11 @@
 package com.androiddevs.mvvmnewsapp.all.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -14,7 +17,7 @@ import com.androiddevs.mvvmnewsapp.R
 import com.androiddevs.mvvmnewsapp.all.adapters.NewsAdapter
 import com.androiddevs.mvvmnewsapp.all.ui.NewsActivity
 import com.androiddevs.mvvmnewsapp.all.ui.NewsViewModel
-import com.androiddevs.mvvmnewsapp.all.util.Constants.Companion.QUERY_PAGE_SIZE
+import com.androiddevs.mvvmnewsapp.all.util.Constants.QUERY_PAGE_SIZE
 import com.androiddevs.mvvmnewsapp.all.util.Resource
 import kotlinx.android.synthetic.main.fragment_breaking_news.*
 
@@ -23,7 +26,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
     lateinit var viewModel: NewsViewModel
     lateinit var newsAdapter: NewsAdapter
 
-    val TAG = "BreakingNewsFragment"
+    private val message = "BreakingNewsFragment"
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -64,6 +67,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
                 }
             }
         })
+        Log.d("ALITag", message + ": onViewCreated " + hashCode())
     }
 
     private fun showProgressBar() {
@@ -117,5 +121,65 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
             layoutManager = LinearLayoutManager(activity)
             addOnScrollListener(this@BreakingNewsFragment.scrollListener)
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.d("ALITag", message + ": onAttach " + hashCode())
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("ALITag", message + ": onCreate " + hashCode())
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        Log.d("ALITag", message + ": onCreateView " + hashCode())
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        Log.d("ALITag", message + ": onActivityCreated " + hashCode())
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("ALITag", message + ": onStart " + hashCode())
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("ALITag", message + ": onResume " + hashCode() + "\n")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("ALITag", message + ": onPause " + hashCode())
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("ALITag", message + ": onStop " + hashCode())
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d("ALITag", message + ": onDestroyView " + hashCode())
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("ALITag", message + ": onDestroy " + hashCode())
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.d("ALITag", message + ": onDetach " + hashCode() + "\n")
+    }
+
+    override fun onAttachFragment(childFragment: Fragment) {
+        super.onAttachFragment(childFragment)
+        Log.d("ALITag", message + ": onAttachFragment " + hashCode())
     }
 }

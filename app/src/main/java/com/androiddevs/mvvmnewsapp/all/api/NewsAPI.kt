@@ -1,7 +1,7 @@
 package com.androiddevs.mvvmnewsapp.all.api
 
 import com.androiddevs.mvvmnewsapp.all.models.NewsResponse
-import com.androiddevs.mvvmnewsapp.all.util.Constants.Companion.API_KEY
+import com.androiddevs.mvvmnewsapp.all.util.Constants.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
